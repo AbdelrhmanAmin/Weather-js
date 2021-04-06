@@ -20,20 +20,17 @@ const currentTab = async (location) => {
     C.checked = true;
     F.checked = false;
     document.getElementById('content').innerHTML = '';
-    if (result.cod == '400' || result.cod == '404') {
+    if (result.cod === '400' || result.cod === '404') {
       input.value = '';
-      document.querySelector('.jumbotron').style.cssText =
-        'background:transparent !important';
-      document.body.style.backgroundImage =
-        'url(https://media3.giphy.com/media/bR9c6Kc721ylG/giphy.gif)';
+      document.querySelector('.jumbotron').style.cssText = 'background:transparent !important';
+      document.body.style.backgroundImage = 'url(https://media3.giphy.com/media/bR9c6Kc721ylG/giphy.gif)';
       document.body.style.backgroundRepeat = 'repeat';
       document.body.style.backgroundColor = 'red';
       form.style.display = 'none';
       document.body.style.color = 'white';
       input.style.color = 'black';
     } else {
-      document.querySelector('.jumbotron').style.cssText =
-        'background: #EEEEEE !important';
+      document.querySelector('.jumbotron').style.cssText = 'background: #EEEEEE !important';
       document.body.style.backgroundImage = '';
       document.body.style.backgroundColor = 'white';
       form.style.display = 'block';

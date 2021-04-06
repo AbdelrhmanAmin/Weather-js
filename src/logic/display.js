@@ -2,6 +2,7 @@
 const display = (result) => {
   const content = document.querySelector('#content');
   const name = document.createElement('h2');
+  name.className = 'name'
   const div = document.createElement('div');
   const temp = document.createElement('strong');
   const img = document.createElement('img');

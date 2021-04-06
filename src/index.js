@@ -11,10 +11,12 @@ const F = document.querySelector('#F');
 
 const currentTab = async (location) => {
   let result;
+  unit = 'metric';
   document.getElementById('content').innerHTML = '';
   result = await getWeather(location, unit)
   display(result)
   btn.addEventListener('click', async () => {
+    unit = 'metric'
     result = await getWeather(input.value, unit)
     C.checked = true;
     F.checked = false;
@@ -39,21 +41,13 @@ const currentTab = async (location) => {
   })
   C.addEventListener('click', async () => {
     unit = 'metric';
-    if (input.value !== '') {
-      result = await getWeather(input.value, unit);
-    } else {
-      result = await getWeather(location, unit)
-    }
+    result = await getWeather(document.querySelector('.name').innerHTML, unit)
     document.getElementById('content').innerHTML = '';
     display(result)
   })
   F.addEventListener('click', async () => {
     unit = 'imperial';
-    if (input.value !== '') {
-      result = await getWeather(input.value, unit);
-    } else {
-      result = await getWeather(location, unit)
-    }
+    result = await getWeather(document.querySelector('.name').innerHTML, unit)
     document.getElementById('content').innerHTML = '';
     display(result)
   })

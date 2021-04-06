@@ -6,7 +6,7 @@ const display = (result) => {
   const temp = document.createElement('strong');
   const img = document.createElement('img');
   name.innerHTML = result.name;
-  temp.innerHTML = parseInt(result.main.temp);
+  temp.innerHTML = result.main.temp;
   temp.style.cssText = 'font-size:30px; margin-right: 5px; font-weight:500';
   div.style.cssText = 'display: flex; align-items:center';
   img.src = `https://www.countryflags.io/${result.sys.country}/shiny/32.png`;

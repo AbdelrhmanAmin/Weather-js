@@ -2,7 +2,6 @@ import getWeather from './logic/api';
 import display from './logic/display';
 
 let unit = 'metric';
-const content = document.querySelector('#content');
 const input = document.querySelector('#City');
 const btn = document.querySelector('.find');
 const form = document.querySelector('.form');
@@ -13,43 +12,46 @@ const currentTab = async (location) => {
   let result;
   unit = 'metric';
   document.getElementById('content').innerHTML = '';
-  result = await getWeather(location, unit)
-  display(result)
+  result = await getWeather(location, unit);
+  display(result);
   btn.addEventListener('click', async () => {
-    unit = 'metric'
-    result = await getWeather(input.value, unit)
+    unit = 'metric';
+    result = await getWeather(input.value, unit);
     C.checked = true;
     F.checked = false;
     document.getElementById('content').innerHTML = '';
     if (result.cod == '400' || result.cod == '404') {
-      input.value = ''
-      document.querySelector('.jumbotron').style.cssText ="background:transparent !important"
-      document.body.style.backgroundImage = 'url(https://media3.giphy.com/media/bR9c6Kc721ylG/giphy.gif)';
-      document.body.style.backgroundRepeat = "repeat";
-      document.body.style.backgroundColor = "red";
-      form.style.display = 'none'
-      document.body.style.color = 'white'
+      input.value = '';
+      document.querySelector('.jumbotron').style.cssText =
+        'background:transparent !important';
+      document.body.style.backgroundImage =
+        'url(https://media3.giphy.com/media/bR9c6Kc721ylG/giphy.gif)';
+      document.body.style.backgroundRepeat = 'repeat';
+      document.body.style.backgroundColor = 'red';
+      form.style.display = 'none';
+      document.body.style.color = 'white';
       input.style.color = 'black';
     } else {
-      document.querySelector('.jumbotron').style.cssText ="background: #EEEEEE !important"
+      document.querySelector('.jumbotron').style.cssText =
+        'background: #EEEEEE !important';
       document.body.style.backgroundImage = '';
-      document.body.style.backgroundColor = "white";
-      form.style.display = 'block'
-      document.body.style.color = 'black'
+      document.body.style.backgroundColor = 'white';
+      form.style.display = 'block';
+      document.body.style.color = 'black';
     }
-    display(result)
-  })
+    display(result);
+  });
   C.addEventListener('click', async () => {
     unit = 'metric';
-    result = await getWeather(document.querySelector('.name').innerHTML, unit)
+    result = await getWeather(document.querySelector('.name').innerHTML, unit);
     document.getElementById('content').innerHTML = '';
-    display(result)
-  })
+    display(result);
+  });
   F.addEventListener('click', async () => {
     unit = 'imperial';
-    result = await getWeather(document.querySelector('.name').innerHTML, unit)
+    result = await getWeather(document.querySelector('.name').innerHTML, unit);
     document.getElementById('content').innerHTML = '';
-    display(result)
-  })
-}
-currentTab()
+    display(result);
+  });
+};
+currentTab();

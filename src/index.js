@@ -42,13 +42,13 @@ const currentTab = async (location) => {
     unit = 'metric';
     result = await getWeather(document.querySelector('.name').innerHTML, unit);
     document.getElementById('content').innerHTML = '';
-    display(result);
+    display(result, unit);
   });
   F.addEventListener('click', async () => {
     unit = 'imperial';
     result = await getWeather(document.querySelector('.name').innerHTML, unit);
     document.getElementById('content').innerHTML = '';
-    display(result);
+    display(result, unit);
   });
 };
 currentTab();

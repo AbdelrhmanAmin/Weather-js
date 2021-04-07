@@ -7,6 +7,7 @@ const btn = document.querySelector('.find');
 const form = document.querySelector('.form');
 const C = document.querySelector('#C');
 const F = document.querySelector('#F');
+const container = document.querySelector('.container');
 
 const currentTab = async (location) => {
   let result;
@@ -22,15 +23,15 @@ const currentTab = async (location) => {
     document.getElementById('content').innerHTML = '';
     if (result.cod === '400' || result.cod === '404') {
       input.value = '';
-      document.querySelector('.jumbotron').style.cssText = 'background:transparent !important';
       document.body.style.backgroundImage = 'url(https://media3.giphy.com/media/bR9c6Kc721ylG/giphy.gif)';
       document.body.style.backgroundRepeat = 'repeat';
       document.body.style.backgroundColor = 'red';
-      form.style.display = 'none';
+      form.style.cssText = 'display: none !important';
+      btn.className = 'btn-primary'
       document.body.style.color = 'white';
       input.style.color = 'black';
+      container.style.backgroundImage = ''
     } else {
-      document.querySelector('.jumbotron').style.cssText = 'background: #EEEEEE !important';
       document.body.style.backgroundImage = '';
       document.body.style.backgroundColor = 'white';
       form.style.display = 'block';

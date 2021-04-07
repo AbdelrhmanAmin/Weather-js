@@ -27,10 +27,10 @@ const currentTab = async (location) => {
       document.body.style.backgroundRepeat = 'repeat';
       document.body.style.backgroundColor = 'red';
       form.style.cssText = 'display: none !important';
-      btn.className = 'btn-primary'
+      btn.className = 'btn-primary';
       document.body.style.color = 'white';
       input.style.color = 'black';
-      container.style.backgroundImage = ''
+      container.style.backgroundImage = '';
     } else {
       document.body.style.backgroundImage = '';
       document.body.style.backgroundColor = 'white';
